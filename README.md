@@ -13,7 +13,7 @@ This project implements an AI-powered multi-document legal assistant using hybri
 - **Source Attribution**: Query results include source documents and page numbers for verification
 - **Batch Processing**: Efficient database creation with batching support for large datasets
 - **Semantic Understanding**: Integration with Google Gemini embeddings and generative models
-- **Lightweight Intent Classifier**: Uses LLM-based intent detection to dynamically route queries into specialized modes including general QA, termination clauses, definitions, obligations, payment terms, dispute resolution, and intellectual property rights
+- **Lightweight Intent Classifier**: Uses LLM-based intent detection using a Deterministic agent (rule-based) to dynamically route queries into specialized modes including general QA, termination clauses, definitions, obligations, payment terms, dispute resolution, and intellectual property rights
 
 ## Technical Stack
 
@@ -171,8 +171,8 @@ Enhance hybrid retrieval using BM25 and vector similarity score fusion, with opt
 ### Multi-Format Document Support
 Extend ingestion pipeline to support additional file formats such as DOCX and TXT using open-source document loaders.
 
-### Lightweight Agentic Workflow
-Introduce a modular reasoning pipeline where the system dynamically decides between retrieval, summarization, comparison, and extraction based on query intent.
+### Agentic Workflow
+Upgrade Deterministic agent (rule-based) to a true agent.
 
 ### Free-Tier Deployment Strategy
 Deploy the application using Streamlit Community Cloud or Hugging Face Spaces to maintain zero-cost hosting and public accessibility.
