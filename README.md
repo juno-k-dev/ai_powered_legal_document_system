@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a multi-document assistant using hybrid retrieval techniques to answer questions based on a collection of PDF documents. The system leverages LangChain, Google Gemini, ChromaDB, and BM25 to provide a sophisticated legal document analysis and query interface.
+This project implements an AI-powered multi-document legal assistant using hybrid retrieval techniques and lightweight intent classification to dynamically route queries into specialized analysis modes. The system leverages LangChain, Google Gemini, ChromaDB, and BM25 to provide sophisticated legal document analysis and query interface based on a collection of PDF documents.
 
 ## Features
 
@@ -13,6 +13,7 @@ This project implements a multi-document assistant using hybrid retrieval techni
 - **Source Attribution**: Query results include source documents and page numbers for verification
 - **Batch Processing**: Efficient database creation with batching support for large datasets
 - **Semantic Understanding**: Integration with Google Gemini embeddings and generative models
+- **Lightweight Intent Classifier**: Uses LLM-based intent detection to dynamically route queries into specialized modes including general QA, termination clauses, definitions, obligations, payment terms, dispute resolution, and intellectual property rights
 
 ## Technical Stack
 
@@ -95,6 +96,18 @@ print("Answer:", answer)
 print("Sources:", docs)
 ```
 
+### Sample Queries by Intent
+
+The system automatically classifies query intent and uses specialized pipelines:
+
+- **General Inquiry**: "What is the general purpose of this legal document?"
+- **Termination Clause Query**: "What are the conditions for contract termination?"
+- **Definition Request**: "Define 'Institute'."
+- **Obligation Identification**: "What are the responsibilities of the service provider?"
+- **Payment Terms Inquiry**: "How are payments handled under this agreement?"
+- **Dispute Resolution**: "How are disputes resolved in this contract?"
+- **Intellectual Property Rights**: "Who owns the intellectual property created?"
+
 ### Retrieve Documents Using Hybrid Search
 
 ```python
@@ -120,6 +133,10 @@ The assistant provides:
 2. **Source Attribution**: Document name and page number for each relevant section
 3. **Retrieval Insights**: Separate vector search and BM25 results for transparency and method comparison
 
+## Implementation
+
+The complete implementation and demonstration of the AI-powered legal document system, including the lightweight intent classifier with sample queries, is available in the `ai_powered_legal_document_system.ipynb` Jupyter notebook.
+
 ## Performance Considerations
 
 - **Chunk Size**: Larger chunks retain more context; smaller chunks improve precision
@@ -135,9 +152,6 @@ The assistant provides:
 - Professional and precise language is maintained in all responses
 
 ## Future Enhancements
-
-### Advanced Intent Routing System
-Replace rule-based classification with lightweight LLM-based intent detection to dynamically route queries into QA, summary, comparison, and clause extraction modes.
 
 ### Multi-Document Cross-Reasoning
 Extend the comparison engine to perform clause-level alignment across multiple documents with structured output highlighting differences, risks, and inconsistencies.
